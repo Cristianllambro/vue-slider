@@ -40,16 +40,16 @@ const app = new Vue({
         next() {
             this.indexItems == this.arrCity.length -1 ? this.indexItems = 0 : this.indexItems++;
         },
+        
         stopTime() {
-            let check = true;
-            if(check) {
-                clearInterval(this.timeSec);
-            } else {
-                setInterval(this.next, 1000);
-            }
+            clearInterval(this.timeSec);
+        },
+
+        restartTime() {
+            this.timeSec = setInterval(this.next, 3000);
         }
     },
     created() {
-        this.timeSec = setInterval(this.next, 3000);
+        this.restartTime()
     }
 })
