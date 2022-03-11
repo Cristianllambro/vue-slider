@@ -1,30 +1,7 @@
-const items = [
-    'img/01.jpg',
-    'img/02.jpg',
-    'img/03.jpg',
-    'img/04.jpg',
-    'img/05.jpg'
-];
-
-const title = [
-    'Svezia',
-    'Svizzera',
-    'Gran Bretagna',
-    'Germania',
-    'Paradise'
-]
-
-const text = [
-    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.',
-    'Lorem ipsum',
-    'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
-    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
-    'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
-]
-
 const app = new Vue({
     el: '#root',
     data: {
+        indexItems: 0,
         arrCity: 
         [
             {
@@ -53,5 +30,17 @@ const app = new Vue({
                 img: '05.jpg'
             }
         ]
+    },
+    methods: {
+        previus() {
+            this.indexItems == 0 ? this.indexItems = this.arrCity.length - 1 : this.indexItems--;
+        },
+
+        next() {
+            this.indexItems == this.arrCity.length -1 ? this.indexItems = 0 : this.indexItems++; 
+        },
+    },
+    created() {
+        setInterval(this.next, 3000);
     }
 })
