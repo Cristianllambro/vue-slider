@@ -29,7 +29,8 @@ const app = new Vue({
                 text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
                 img: '05.jpg'
             }
-        ]
+        ],
+        timeSec: '',
     },
     methods: {
         previus() {
@@ -37,10 +38,18 @@ const app = new Vue({
         },
 
         next() {
-            this.indexItems == this.arrCity.length -1 ? this.indexItems = 0 : this.indexItems++; 
+            this.indexItems == this.arrCity.length -1 ? this.indexItems = 0 : this.indexItems++;
         },
+        stopTime() {
+            let check = true;
+            if(check) {
+                clearInterval(this.timeSec);
+            } else {
+                setInterval(this.next, 1000);
+            }
+        }
     },
     created() {
-        setInterval(this.next, 3000);
+        this.timeSec = setInterval(this.next, 3000);
     }
 })

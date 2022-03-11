@@ -14,7 +14,7 @@
 
 			<!-- image center -->
 			<div class="slide">
-				<img :src="'img/' + arrCity[indexItems].img" :alt="arrCity[indexItems].name">
+				<img @mouseover="stopTime" :src="'img/' + arrCity[indexItems].img" :alt="arrCity[indexItems].name">
 				<div class="slide-contents">
 					<h2 class="slide-title">{{ arrCity[indexItems].name }}</h2>
 					<p class="slide-text"> {{ arrCity[indexItems].text}}</p>
